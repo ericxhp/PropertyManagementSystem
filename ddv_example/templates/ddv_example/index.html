@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <p>
+         {% blocktrans %}Micron Asset Management System{% endblocktrans %}
+    </p>    
+
+    <p>
+         {% blocktrans %}Query All Type Assets Status:{% endblocktrans %}
+    </p>
+    <a href="{% url 'datatables_110' %}">{% trans "Herclues Information" %}</a>
+{% endblock %}

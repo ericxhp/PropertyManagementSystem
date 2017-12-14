@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n staticfiles %}
+
+{% block extra_head %}
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
+    <script src="{% static "ddv_example/ddv_example.js" %}"></script>
+    <script type="text/javascript">
+        var USERS_LIST_JSON_URL = '{% url "users_list_json_19" %}';
+        // translations for datatables
+        var oLanguages = {
+            oPaginate:{
+                sFirst:'<<',
+                sLast: '>>',
+                sNext: '>',
+                sPrevious: '<'
+            },
+            sInfo:'{% trans "Showing _START_ to _END_ of _TOTAL_ entries" %}',
+            sInfoEmpty: '{% trans "No entries to show" %}',
+            sInfoFiltered: '{% trans "(filtered from _MAX_ total entries)" %}',
+            sLengthMenu:'{% trans "Show _MENU_ entries" %}',
+            sProcessing: '{% trans "Processing" %}',
+            sSearch: '{% trans "Filter records:" %}',
+            sZeroRecords: '{% trans "No data to show" %}'
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <table class="datatable">
+        <thead>
+            <th>{% trans "Username" %}</th>
+            <th>{% trans "E-mail" %}</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
